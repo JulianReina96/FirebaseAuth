@@ -13,21 +13,21 @@ var configuration = builder.Configuration;
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
 services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.Authority = "https://securetoken.google.com/prac-f7996";
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidIssuer = "https://securetoken.google.com/prac-f7996",
-            ValidateAudience = true,
-            ValidAudience = "prac-f7996",
-            ValidateLifetime = true
-        };
-        options.RequireHttpsMetadata = false;
+	.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+	.AddJwtBearer(options =>
+	{
+		options.Authority = "https://securetoken.google.com/authteste-ee35d";
+		options.TokenValidationParameters = new TokenValidationParameters
+		{
+			ValidateIssuer = true,
+			ValidIssuer = "https://securetoken.google.com/authteste-ee35d",
+			ValidateAudience = true,
+			ValidAudience = "authteste-ee35d",
+			ValidateLifetime = true
+		};
+		options.RequireHttpsMetadata = false;
 
-    });
+	});
 //builder.Services.AddAuthorization(options =>
 //{
 //    options.AddPolicy("AdminOnly", policy => policy.RequireClaim("admin"));
@@ -40,9 +40,9 @@ services.AddCors();
 services.AddDistributedMemoryCache();
 services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(60);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = false;
+	options.IdleTimeout = TimeSpan.FromMinutes(60);
+	options.Cookie.HttpOnly = true;
+	options.Cookie.IsEssential = false;
 }); //adicionado tempo de sessão ativa
 
 // Add services to the container.
@@ -66,25 +66,25 @@ var app = builder.Build();
 var supportedCultures = new[] { new CultureInfo("pt-BR") };
 app.UseRequestLocalization(new RequestLocalizationOptions
 {
-    DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
-    SupportedCultures = supportedCultures,
-    SupportedUICultures = supportedCultures
+	DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+	SupportedCultures = supportedCultures,
+	SupportedUICultures = supportedCultures
 });
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AppName v1"));
+	app.UseSwagger();
+	app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AppName v1"));
 }
 
 //abertura para verificação de erro. Remover apos desuso
 //IdentityModelEventSource.ShowPII = true;
 
 app.UseCors(x => x
-         .AllowAnyOrigin()
-         .AllowAnyMethod()
-         .AllowAnyHeader());
+		 .AllowAnyOrigin()
+		 .AllowAnyMethod()
+		 .AllowAnyHeader());
 
 
 //app.UseHttpsRedirection();
