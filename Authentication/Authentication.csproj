@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="JsonFire\**" />
+    <Content Remove="JsonFire\**" />
+    <EmbeddedResource Remove="JsonFire\**" />
+    <None Remove="JsonFire\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Firebase.Auth" Version="1.0.0" />
     <PackageReference Include="FirebaseAdmin" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
