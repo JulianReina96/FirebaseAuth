@@ -25,7 +25,7 @@ namespace Authentication.Controllers
         public AccountController()
         {
             auth = new FirebaseAuthProvider(
-                            new FirebaseConfig("AIzaSyCk1aomK6uaqR2q0hglXd-36cxqPDZTaEw"));
+                            new FirebaseConfig("AIzaSyA9SvJlPbX6b9TKRrMsOzRT1yTiCwA4t1Y"));
 
         }
 

@@ -16,13 +16,13 @@ services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://securetoken.google.com/prac-f7996";
+        options.Authority = "https://securetoken.google.com/authteste-ee35d";
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = "https://securetoken.google.com/prac-f7996",
+            ValidIssuer = "https://securetoken.google.com/authteste-ee35d",
             ValidateAudience = true,
-            ValidAudience = "prac-f7996",
+            ValidAudience = "authteste-ee35d",
             ValidateLifetime = true
         };
         options.RequireHttpsMetadata = false;
